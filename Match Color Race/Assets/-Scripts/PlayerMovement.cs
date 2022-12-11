@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,18 +5,20 @@ namespace _Scripts
 {
     public class PlayerMovement : MonoBehaviour
     {
+        public static float MovespeedZ = 4.1f;
+        
         private Rigidbody _rb;
         private Transform _transform;
         private float _maxSpeedZ;
 
         public float speedingUpDuration = 0.4f;
         public LayerMask ground;
-        public float movespeedZ = 4.5f;
         public float movespeedX = 3f;
+        
 
         private void Start()
         {
-            _maxSpeedZ = movespeedZ;
+            _maxSpeedZ = MovespeedZ;
             _rb = GetComponent<Rigidbody>();
             _transform = GetComponent<Transform>();
         }
@@ -30,7 +31,7 @@ namespace _Scripts
         private void Move()
         {
             var horizontal = Input.GetAxisRaw("Horizontal");
-            _rb.velocity = new Vector3(horizontal * movespeedX, 0, movespeedZ);
+            _rb.velocity = new Vector3(horizontal * movespeedX, 0, MovespeedZ);
             
             
             if (Physics.Raycast(_transform.position, transform.TransformDirection(Vector3.down), out var hit,ground))
@@ -43,7 +44,7 @@ namespace _Scripts
 
                 else
                 {
-                    _maxSpeedZ = 3f;
+                    _maxSpeedZ = 4.1f;
                     StartCoroutine(HitOther());
                 }
             }
@@ -52,18 +53,18 @@ namespace _Scripts
         private IEnumerator HitRed()
         {
             yield return new WaitForSeconds(speedingUpDuration);
-            if (movespeedZ <= _maxSpeedZ)
+            if (MovespeedZ <= _maxSpeedZ)
             {
-                movespeedZ += 0.1f;
+                MovespeedZ += 0.1f;
             }
             
         }
         private IEnumerator HitOther()
         {
             yield return new WaitForSeconds(speedingUpDuration);
-            if (movespeedZ > _maxSpeedZ)
+            if (MovespeedZ > _maxSpeedZ)
             {
-                movespeedZ -= 0.1f;
+                MovespeedZ -= 0.1f;
             }
         }
         
