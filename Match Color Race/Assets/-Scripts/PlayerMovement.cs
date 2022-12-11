@@ -11,16 +11,19 @@ namespace _Scripts
         private Transform _transform;
         private float _maxSpeedZ;
 
-        public float speedingUpDuration = 0.4f;
+        public float speedChangeAmount = 0.4f;
         public LayerMask ground;
         public float movespeedX = 3f;
         
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+            _transform = GetComponent<Transform>();
+        }
 
         private void Start()
         {
             _maxSpeedZ = MovespeedZ;
-            _rb = GetComponent<Rigidbody>();
-            _transform = GetComponent<Transform>();
         }
 
         private void FixedUpdate()
@@ -52,7 +55,7 @@ namespace _Scripts
         
         private IEnumerator HitRed()
         {
-            yield return new WaitForSeconds(speedingUpDuration);
+            yield return new WaitForSeconds(speedChangeAmount);
             if (MovespeedZ <= _maxSpeedZ)
             {
                 MovespeedZ += 0.1f;
@@ -61,7 +64,7 @@ namespace _Scripts
         }
         private IEnumerator HitOther()
         {
-            yield return new WaitForSeconds(speedingUpDuration);
+            yield return new WaitForSeconds(speedChangeAmount);
             if (MovespeedZ > _maxSpeedZ)
             {
                 MovespeedZ -= 0.1f;

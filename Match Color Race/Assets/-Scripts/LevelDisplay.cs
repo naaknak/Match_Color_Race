@@ -1,15 +1,17 @@
-using _Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelDisplay : MonoBehaviour
+namespace _Scripts
 {
-    private int _level;
-    public Text levelText;
-
-    private void Update()
+    public class LevelDisplay : MonoBehaviour
     {
-        _level = PlayerLevel.Level;
-        levelText.text = "LEVEL: " + _level;
+        private int _level;
+        public Text levelText;
+
+        private void Update()
+        {
+            _level = PlayerLevel.Level;
+            levelText.text = _level.ToString();
+        }
     }
 }

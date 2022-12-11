@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="97e41a18-d2ff-404a-805e-04a085703b74" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Match Color Race/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Match Color Race/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-Scripts/LevelDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-Scripts/LevelDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/-Scripts/PlayerLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-Scripts/PlayerLevel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/-Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/-Scripts/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +83,7 @@
       <workItem from="1670158234303" duration="401000" />
       <workItem from="1670176907429" duration="596000" />
       <workItem from="1670331229036" duration="3261000" />
+      <workItem from="1670751685861" duration="6291000" />
     </task>
     <servers />
   </component>

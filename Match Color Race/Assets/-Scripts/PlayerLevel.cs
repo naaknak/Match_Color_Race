@@ -5,6 +5,7 @@ namespace _Scripts
     public class PlayerLevel : MonoBehaviour
     {
         public static int Level = 1;
+        public static bool IsOnRed;
 
         public float levelingUpDuration;
         public LayerMask ground;
@@ -26,15 +27,7 @@ namespace _Scripts
         {
             if (Physics.Raycast(_transform.position, transform.TransformDirection(Vector3.down), out var hit,ground))
             {
-                if (hit.transform.CompareTag("Red"))
-                {
-                    Level = 2;
-                }
-
-                else
-                {
-                    Level = 1;
-                }
+                IsOnRed = hit.transform.CompareTag("Red");
             }
         }
     }
