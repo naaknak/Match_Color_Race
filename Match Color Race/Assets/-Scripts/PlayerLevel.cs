@@ -6,8 +6,7 @@ namespace _Scripts
     {
         public static int Level = 1;
         public static bool IsOnRed;
-
-        public float levelingUpDuration;
+        
         public LayerMask ground;
 
         private float _levelBar;

@@ -9,7 +9,7 @@ namespace _Scripts
         private Slider _slider;
         private float _targetProgress;
         private const float TargetProgressChangeAmount = 0.2f;
-        private const float FillSpeed = 0.15f;
+        private const float FillSpeed = 0.25f;
 
         private void Awake()
         {
