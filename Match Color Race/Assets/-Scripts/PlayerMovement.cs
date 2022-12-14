@@ -10,6 +10,9 @@ namespace _Scripts
         private Rigidbody _rb;
         private Transform _transform;
         private float _maxSpeedZ;
+        private float _defaultSpeed;
+        private float _maxSpeedPerLevel;
+        private int _level;
 
         public float speedChangeAmount = 0.4f;
         public LayerMask ground;
@@ -23,12 +26,16 @@ namespace _Scripts
 
         private void Start()
         {
-            _maxSpeedZ = MovespeedZ;
+            _maxSpeedZ = _defaultSpeed;
+            _maxSpeedPerLevel = 10f;
+            _defaultSpeed = 4.1f;
+            _level = PlayerLevel.Level;
         }
 
         private void FixedUpdate()
         {
             Move();
+            IncreaseMaxSpeed();
         }
 
         private void Move()
@@ -41,13 +48,13 @@ namespace _Scripts
             {
                 if (hit.transform.CompareTag("Red"))
                 {
-                    _maxSpeedZ = 10f;
+                    _maxSpeedZ = _maxSpeedPerLevel;
                     StartCoroutine(HitRed());
                 }
 
                 else
                 {
-                    _maxSpeedZ = 4.1f;
+                    _maxSpeedZ = _defaultSpeed;
                     StartCoroutine(HitOther());
                 }
             }
@@ -69,6 +76,13 @@ namespace _Scripts
             {
                 MovespeedZ -= 0.1f;
             }
+        }
+
+        private void IncreaseMaxSpeed()
+        {
+            if (_level == PlayerLevel.Level) return;
+            _level += 1;
+            _maxSpeedPerLevel += 5f;
         }
         
     }

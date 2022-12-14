@@ -7,23 +7,27 @@ namespace _Scripts
     {
         //Vector3.Lerp Kullan
         private CinemachineVirtualCamera _vcam;
+        
+        public Transform playerTransform;
+        public Transform cameraTransform;
+
+        private Vector3 _startingPos;
+        private Vector3 _endingPos = new Vector3(2.5f, 9f, -12f);
+        private float _duration = 2f;
+        private float _elapsedTime;
 
         private void Awake()
         {
             _vcam = GetComponent<CinemachineVirtualCamera>();
+            _startingPos = cameraTransform.position;
         }
 
         private void Update()
         {
-            if (PlayerMovement.MovespeedZ > 6)
-            {
-                _vcam.m_Lens.FieldOfView = 63;
-            }
+            _elapsedTime += Time.deltaTime;
+            var percentageComplete = _elapsedTime / _duration;
 
-            else
-            {
-                _vcam.m_Lens.FieldOfView = 60;
-            }
+            cameraTransform.position = Vector3.Lerp(_startingPos, _endingPos, percentageComplete);
         }
     }
 }
