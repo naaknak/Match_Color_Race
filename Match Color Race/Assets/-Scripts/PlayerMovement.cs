@@ -17,6 +17,7 @@ namespace _Scripts
         public float speedChangeAmount = 0.4f;
         public LayerMask ground;
         public float movespeedX = 3f;
+        public Animator animator;
         
         private void Awake()
         {
@@ -50,12 +51,14 @@ namespace _Scripts
                 {
                     _maxSpeedZ = _maxSpeedPerLevel;
                     StartCoroutine(HitRed());
+                    animator.SetBool("isRunning",true);
                 }
 
                 else
                 {
                     _maxSpeedZ = _defaultSpeed;
                     StartCoroutine(HitOther());
+                    animator.SetBool("isRunning",false);
                 }
             }
         }
